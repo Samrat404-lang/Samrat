@@ -1,0 +1,110 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I Love You Virus</title>
+    
+    <h3>Do you love me</h3>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-image: url('https://www.example.com/love-background.jpg'); /* Replace with your love background image URL */
+            background-size: cover;
+            background-position: center;
+            overflow: hidden;
+        }
+
+        #container {
+            text-align: center;
+            color: white;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 10px;
+            background-color: rgba(255, 0, 0, 0.7);
+            border: none;
+            color: white;
+            border-radius: 5px;
+        }
+
+        #message {
+            font-size: 20px;
+            margin-top: 20px;
+        }
+
+        #question {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+        <h2> </h2>
+    <div id="container">
+        <h2> Do you love me?</h2>
+        <button id="yes-btn">Yes</button>
+        <button id="no-btn">No</button>
+    </div>
+    <p id="message"></p>
+
+    <script>
+        let yesBtn = document.getElementById('yes-btn');
+        let noBtn = document.getElementById('no-btn');
+        let message = document.getElementById('message');
+        let question = document.getElementById('question');
+
+        let moveCount = 0;  // To track the number of moves for the "No" button
+
+        yesBtn.addEventListener('click', function() {
+            message.textContent = "I know you love me💗🫀🫀🫀🫀 ";  // Repeat the message 5 times
+        });
+
+        noBtn.addEventListener('click', function() {
+            moveCount++;
+            moveButton(noBtn);
+        });
+
+        function moveButton(button) {
+            // Based on the move count, move the "No" button to different locations
+            let container = document.getElementById('container');
+            let containerWidth = container.clientWidth;
+            let containerHeight = container.clientHeight;
+
+            // Reset button position
+            button.style.position = 'absolute';
+            
+            switch(moveCount % 4) {
+                case 1:  // Move to bottom
+                    button.style.top = `${containerHeight - button.offsetHeight - 10}px`;
+                    button.style.left = `${Math.random() * (containerWidth - button.offsetWidth)}px`;
+                    break;
+                case 2:  // Move to top
+                    button.style.top = '10px';
+                    button.style.left = `${Math.random() * (containerWidth - button.offsetWidth)}px`;
+                    break;
+                case 3:  // Move to bottom again
+                    button.style.top = `${containerHeight - button.offsetHeight - 10}px`;
+                    button.style.left = `${Math.random() * (containerWidth - button.offsetWidth)}px`;
+                    break;
+                case 0:  // Move to top again
+                    button.style.top = '10px';
+                    button.style.left = `${Math.random() * (containerWidth - button.offsetWidth)}px`;
+                    break;
+            }
+        }
+    </script>
+           
+</body>
+
+</html>
+
+
